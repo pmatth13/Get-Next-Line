@@ -6,7 +6,7 @@
 /*   By: psaudell <psaudell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:52:35 by psaudell          #+#    #+#             */
-/*   Updated: 2026/10/26 18:30:45 by psaudell         ###   ########.fr       */
+/*   Updated: 2026/10/26 18:54:05 by psaudell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 char	*get_next_line(int fd)
 {
+	fd = 0;
 	return (NULL);
 }

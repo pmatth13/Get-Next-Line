@@ -6,7 +6,7 @@
 /*   By: psaudell <psaudell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:52:38 by psaudell          #+#    #+#             */
-/*   Updated: 2026/10/26 18:38:12 by psaudell         ###   ########.fr       */
+/*   Updated: 2026/10/26 18:50:48 by psaudell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ char	*ft_newline(char *str)
 	return (NULL);
 }
 
-int	ft_strlen(char	*str)
+size_t	ft_strlen(char	*str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!str)
@@ -80,6 +80,6 @@ char	*ft_join_to_buff(char *buffer, char *str)
 		free(buffer);
 		return (NULL);
 	}
-	free(buffer);	
+	free(buffer);
 	return (copy);
 }

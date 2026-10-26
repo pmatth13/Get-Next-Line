@@ -6,7 +6,7 @@
 /*   By: psaudell <psaudell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:52:32 by psaudell          #+#    #+#             */
-/*   Updated: 2026/10/26 18:16:54 by psaudell         ###   ########.fr       */
+/*   Updated: 2026/10/26 18:53:17 by psaudell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 
 char	*get_next_line(int fd);
 char	*ft_join_to_buff(char *buffer, char *str);
+char	*ft_newline(char *str);
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlen(char *str);
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 50
