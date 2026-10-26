@@ -33,14 +33,14 @@ char	*ft_check(char *str)
 	size_t	i;
 
 	i = 0;
-	while (str[i] || str == NULL)
+	if (!str)
+		return NULL;
+	while (str[i])
 	{
 		if (str[i] == '\n')
 			return (&str[i]);
 		i++;
 	}
-	if (str[i] == '\0')
-		return (str);
 	return (NULL);
 }
 
@@ -49,7 +49,7 @@ int main(void)
 	char *str;
 
 	str = NULL;
-	ft_check(str);
-	printf("%s\n", str);
+	;
+	printf("%s\n",ft_check(str));
 	return (0);
 }
