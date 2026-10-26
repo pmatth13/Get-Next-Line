@@ -6,13 +6,13 @@
 /*   By: psaudell <psaudell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:52:35 by psaudell          #+#    #+#             */
-/*   Updated: 2026/10/22 14:56:34 by psaudell         ###   ########.fr       */
+/*   Updated: 2026/10/26 18:30:45 by psaudell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int	fd)
+char	*get_next_line(int fd)
 {
 	return (NULL);
 }
