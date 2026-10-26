@@ -2,7 +2,7 @@
 
 int	main(void)
 {
-/*	int		fd_r;
+	int		fd_r;
 	int		n;
 	char	buf[21];
 	ssize_t	ret;
@@ -20,7 +20,7 @@ int	main(void)
 		ret = read(fd_r, buf, 20);
 		buf[ret] = '\0';
 	}
-	printf("/////// La valeur des octets de ret : %ld\n", ret);*/
+	printf("/////// La valeur des octets de ret : %ld\n", ret);
 	printf("Buffer : %d\n", BUFFER_SIZE);
 	return (0);
 }
