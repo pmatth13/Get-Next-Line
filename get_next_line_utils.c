@@ -6,7 +6,7 @@
 /*   By: psaudell <psaudell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:52:38 by psaudell          #+#    #+#             */
-/*   Updated: 2026/10/26 18:50:48 by psaudell         ###   ########.fr       */
+/*   Updated: 2026/10/29 13:50:14 by psaudell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,6 @@ char	*ft_join_to_buff(char *buffer, char *str)
 	if (!buffer && !str)
 		return (NULL);
 	copy = ft_strjoin(buffer, str);
-	if (!copy)
-	{
-		free(buffer);
-		return (NULL);
-	}
 	free(buffer);
 	return (copy);
 }
