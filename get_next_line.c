@@ -6,11 +6,37 @@
 /*   By: psaudell <psaudell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:52:35 by psaudell          #+#    #+#             */
-/*   Updated: 2026/10/29 15:54:03 by psaudell         ###   ########.fr       */
+/*   Updated: 2026/10/31 11:40:43 by psaudell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static char	*ft_line(char *stock)
+{
+	char	*new_line;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (!stock)
+		return (NULL);
+	while (stock[i] && stock[i] != '\n')
+		i++;
+	if (stock[i] == '\n')
+		i++;
+	new_line = malloc(sizeof(char) * (i + 1));
+	if (!new_line)
+		return (NULL);
+	while (j < i)
+	{
+		new_line[j] = stock[j];
+		j++;
+	}
+	new_line[j] = '\0';
+	return (new_line);
+}
 
 static char	*ft_free(char *s1, char *s2)
 {
