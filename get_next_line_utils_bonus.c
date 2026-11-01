@@ -40,41 +40,27 @@ size_t	ft_strlen(char	*str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_grow(char *stock, size_t len, size_t *cap, size_t need)
 {
+	char	*new_stock_cap;
 	size_t	i;
-	size_t	j;
-	char	*str;
 
 	i = 0;
-	j = 0;
-	if (!s2)
-		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!str)
-		return (NULL);
-	while (s1 && s1[i])
+	if (need <= *cap)
+		return (stock);
+	if (*cap == 0)
+		*cap = 1;
+	while (need > *cap)
+		*cap = *cap * 2;
+	new_stock_cap = malloc(sizeof(char) * (*cap + 1));
+	if (!new_stock_cap)
+		return (ft_free(stock, NULL));
+	while (i < len)
 	{
-		str[i] = s1[i];
+		new_stock_cap[i] = stock[i];
 		i++;
 	}
-	while (s2[j])
-	{
-		str[i] = s2[j];
-		j++;
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
-}
-
-char	*ft_join_to_buff(char *buffer, char *str)
-{
-	char	*copy;
-
-	if (!buffer && !str)
-		return (NULL);
-	copy = ft_strjoin(buffer, str);
-	free(buffer);
-	return (copy);
+	new_stock_cap[len] = '\0';
+	free(stock);
+	return (new_stock_cap);
 }

@@ -60,15 +60,20 @@ int	main(void)
 
 A static string `stock` keeps the characters read but not yet returned between two calls.
 
-1. **Read**: while `stock` contains no `\n` and `read()` returns more than 0,
-   read `BUFFER_SIZE` bytes and append them to `stock`.
+1. **Read**: while no `\n` has been found and `read()` returns more than 0,
+   read `BUFFER_SIZE` bytes directly at the end of `stock`.
+   - `stock` has a capacity: when it is too small, `ft_grow` doubles it
+     (instead of reallocating and copying everything at each `read()`).
+   - Only the bytes just read are searched for `\n`, the part of `stock`
+     already checked is not scanned again.
 2. **Extract**: copy `stock` up to and including the first `\n` (or to the end) into a new `line`.
 3. **Keep the rest**: replace `stock` with what comes after `line`, so the next call starts there.
 4. **Return** `line`. If `stock` is empty or an error happens, free it and return `NULL`.
 
 **Why this approach:** it reads only what is needed to find the next line (not the whole file),
 it works with any `BUFFER_SIZE` (1 or 10000000), and the static variable keeps the remaining
-text between calls without using global variables.
+text between calls without using global variables. Growing the buffer by doubling and searching
+only the new bytes keeps reading linear, so very long lines with a small `BUFFER_SIZE` do not time out.
 
 **Bonus:** `stock` becomes an array `stock[MAX_FD]` (one string per file descriptor),
 so each fd keeps its own reading state. It is still one single static variable.

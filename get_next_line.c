@@ -6,13 +6,13 @@
 /*   By: psaudell <psaudell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:52:35 by psaudell          #+#    #+#             */
-/*   Updated: 2026/10/31 15:12:55 by psaudell         ###   ########.fr       */
+/*   Updated: 2026/11/01 13:36:06 by psaudell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*ft_free(char *s1, char *s2)
+char	*ft_free(char *s1, char *s2)
 {
 	free(s1);
 	free(s2);
@@ -76,28 +76,28 @@ static char	*ft_line(char *stock)
 static char	*ft_return_buff(int fd, char *stock)
 {
 	ssize_t	ret;
-	char	*buf;
+	size_t	len;
+	size_t	cap;
+	size_t	start;
 
 	if (BUFFER_SIZE <= 0)
-	{
-		free(stock);
-		return (NULL);
-	}
+		return (ft_free(NULL, stock));
 	ret = 1;
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buf)
-		return (ft_free(stock, NULL));
-	while (ret > 0 && !ft_newline(stock))
+	len = ft_strlen(stock);
+	cap = len;
+	start = 0;
+	while (ret > 0 && !ft_newline(&stock[start]))
 	{
-		ret = read(fd, buf, BUFFER_SIZE);
-		if (ret == -1)
-			return (ft_free(stock, buf));
-		buf[ret] = '\0';
-		stock = ft_join_to_buff(stock, buf);
+		stock = ft_grow(stock, len, &cap, len + BUFFER_SIZE);
 		if (!stock)
-			return (ft_free(NULL, buf));
+			return (NULL);
+		start = len;
+		ret = read(fd, &stock[len], BUFFER_SIZE);
+		if (ret == -1)
+			return (ft_free(stock, NULL));
+		len = len + ret;
+		stock[len] = '\0';
 	}
-	ft_free(NULL, buf);
 	return (stock);
 }
 

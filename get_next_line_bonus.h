@@ -19,9 +19,9 @@
 # include <fcntl.h>
 
 char	*get_next_line(int fd);
-char	*ft_join_to_buff(char *buffer, char *str);
 char	*ft_newline(char *str);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_free(char *s1, char *s2);
+char	*ft_grow(char *stock, size_t len, size_t *cap, size_t need);
 size_t	ft_strlen(char *str);
 
 # ifndef BUFFER_SIZE
