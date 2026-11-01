@@ -6,18 +6,11 @@
 /*   By: psaudell <psaudell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:52:35 by psaudell          #+#    #+#             */
-/*   Updated: 2026/11/01 13:36:06 by psaudell         ###   ########.fr       */
+/*   Updated: 2026/11/01 14:11:06 by psaudell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*ft_free(char *s1, char *s2)
-{
-	free(s1);
-	free(s2);
-	return (NULL);
-}
 
 static char	*ft_new_stock(char *stock, char *line)
 {
