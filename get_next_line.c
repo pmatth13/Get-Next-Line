@@ -6,7 +6,7 @@
 /*   By: psaudell <psaudell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:52:35 by psaudell          #+#    #+#             */
-/*   Updated: 2026/11/01 14:11:06 by psaudell         ###   ########.fr       */
+/*   Updated: 2026/11/02 10:53:46 by psaudell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,18 +103,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	stock = ft_return_buff(fd, stock);
 	if (!stock || *stock == '\0')
-	{
-		free(stock);
-		stock = NULL;
-		return (NULL);
-	}
+		return (ft_free(stock,NULL));
 	line = ft_line(stock);
 	if (!line)
-	{
-		free(stock);
-		stock = NULL;
-		return (NULL);
-	}
+		return (ft_free(stock,NULL));
 	stock = ft_new_stock(stock, line);
 	return (line);
 }
